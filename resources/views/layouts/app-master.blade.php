@@ -6,11 +6,11 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.87.0">
-    <title>Fixed top navbar example · Bootstrap v5.1</title>
+    <title>User Role and Permission</title>
 
     <!-- Bootstrap core CSS -->
+    <link href="{!! url('assets/vendor/fontawesome-free/css/all.min.css') !!}" rel="stylesheet" type="text/css">
     <link href="{!! url('assets/bootstrap/css/bootstrap.min.css') !!}" rel="stylesheet">
-
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -27,19 +27,57 @@
       }
     </style>
 
-    
     <!-- Custom styles for this template -->
     <link href="{!! url('assets/css/app.css') !!}" rel="stylesheet">
+    <link href="{!! url('assets/css/sb-admin-2.min.css') !!}" rel="stylesheet">
 </head>
-<body>
-    
-    @include('layouts.partials.navbar')
+<body id="page-top">
+    <div id="wrapper">
+      @include('layouts.partials.slidebar')
+        <div id="content-wrapper" class="d-flex flex-column">
+          <div id="content">
+              @include('layouts.partials.navbar')
+              <div class="container-fluid">
+                <main class="container">
+                  @yield('content')
+                </main>
+              </div>
+          </div>
+          <footer class="sticky-footer bg-white">
+              <div class="container my-auto">
+                  <div class="copyright text-center my-auto">
+                      <span>Copyright &copy; Your Website 2021</span>
+                  </div>
+              </div>
+          </footer>
+      </div>
+    </div>
 
-    <main class="container">
-        @yield('content')
-    </main>
+    {{-- scroll top --}}
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    @include('layouts.partials.modal')
+
 
     <script src="{!! url('assets/bootstrap/js/bootstrap.bundle.min.js') !!}"></script>
-      
+    <!-- Bootstrap core JavaScript-->
+    <script src="{!! url('assets/vendor/jquery/jquery.min.js') !!}"></script>
+    <script src="{!! url('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') !!}"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="{!! url('assets/vendor/jquery-easing/jquery.easing.min.js') !!}"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="{!! url('assets/js/sb-admin-2.min.js') !!}"></script>
+
+    <!-- Page level plugins -->
+    <script src="{!! url('assets/vendor/chart.js/Chart.min.js') !!}"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="{!! url('assets/js/demo/chart-area-demo.js') !!}"></script>
+    <script src="{!! url('assets/js/demo/chart-pie-demo.js') !!}"></script>
   </body>
 </html>

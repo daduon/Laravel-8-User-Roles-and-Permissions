@@ -1,35 +1,78 @@
-<header class="p-3 bg-dark text-white">
-  <div class="container">
-    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-      <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-        <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
-      </a>
 
-      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-        <li><a href="{{ route('home.index') }}" class="nav-link px-2 text-secondary">Home</a></li>
-        <li><a href="{{ route('posts.index') }}" class="nav-link px-2 text-white">Posts</a></li>
-        <li><a href="{{ route('roles.index') }}" class="nav-link px-2 text-white">Roles</a></li>
-        <li><a href="{{ route('users.index') }}" class="nav-link px-2 text-white">Users</a></li>
-        <li><a href="{{ route('permissions.index') }}" class="nav-link px-2 text-white">Permisson</a></li>
-      </ul>
-
-      <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-        <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
-      </form>
+<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+  <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+      <i class="fa fa-bars"></i>
+  </button>
+  <form
+      class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+      <div class="input-group">
+          <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+              aria-label="Search" aria-describedby="basic-addon2">
+          <div class="input-group-append">
+              <button class="btn btn-primary" type="button">
+                  <i class="fas fa-search fa-sm"></i>
+              </button>
+          </div>
+      </div>
+  </form>
+  <ul class="navbar-nav ml-auto">
+      <li class="nav-item dropdown no-arrow d-sm-none">
+          <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-search fa-fw"></i>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+              aria-labelledby="searchDropdown">
+              <form class="form-inline mr-auto w-100 navbar-search">
+                  <div class="input-group">
+                      <input type="text" class="form-control bg-light border-0 small"
+                          placeholder="Search for..." aria-label="Search"
+                          aria-describedby="basic-addon2">
+                      <div class="input-group-append">
+                          <button class="btn btn-primary" type="button">
+                              <i class="fas fa-search fa-sm"></i>
+                          </button>
+                      </div>
+                  </div>
+              </form>
+          </div>
+      </li>
+      <div class="topbar-divider d-none d-sm-block"></div>
 
       @auth
-        {{auth()->user()->name}}
-        <div class="text-end">
-          <a href="{{ route('logout.perform') }}" class="btn btn-outline-light me-2">Logout</a>
-        </div>
+      
+      <li class="nav-item dropdown no-arrow">
+          <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{auth()->user()->username}}</span>
+              <img class="img-profile rounded-circle"
+                  src="img/undraw_profile.svg">
+          </a>
+          <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+              aria-labelledby="userDropdown">
+              <a class="dropdown-item" href="#">
+                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Profile
+              </a>
+              <a class="dropdown-item" href="#">
+                  <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Settings
+              </a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="{{ route('logout.perform') }}">
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Logout
+              </a>
+          </div>
+      </li>
+
       @endauth
 
-      @guest
+      {{-- @guest
         <div class="text-end">
           <a href="{{ route('login.perform') }}" class="btn btn-outline-light me-2">Login</a>
           <a href="{{ route('register.perform') }}" class="btn btn-warning">Sign-up</a>
         </div>
-      @endguest
-    </div>
-  </div>
-</header>
+      @endguest --}}
+  </ul>
+</nav>

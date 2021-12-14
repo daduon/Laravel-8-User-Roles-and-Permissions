@@ -54,8 +54,8 @@
                     @endforeach
                 </table>
 
-                <button type="submit" class="btn btn-primary">Save changes</button>
-                <a href="{{ route('roles.index') }}" class="btn btn-default">Back</a>
+                <button type="submit" class="btn btn-primary">Save</button>
+                <a href="{{ route('roles.index') }}" class="btn btn-dark">Back</a>
             </form>
         </div>
 

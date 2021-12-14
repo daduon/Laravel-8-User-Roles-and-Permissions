@@ -41,7 +41,7 @@ class PostsController extends Controller
             'user_id' => auth()->id()
         ]));
 
-        return redirect()->route('posts.index')
+        return redirect()->back()
             ->withSuccess(__('Post created successfully.'));
     }
 
@@ -82,7 +82,7 @@ class PostsController extends Controller
     {
         $post->update($request->only('title', 'description', 'body'));
 
-        return redirect()->route('posts.index')
+        return redirect()->back()
             ->withSuccess(__('Post updated successfully.'));
     }
 

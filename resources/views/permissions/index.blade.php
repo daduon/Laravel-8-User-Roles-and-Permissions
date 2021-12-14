@@ -4,7 +4,7 @@
     
     <div class="bg-light p-4 rounded">
         <h2>Permissions</h2>
-        <div class="lead">
+        <div class="lead mb-5">
             <a href="{{ route('permissions.create') }}" class="btn btn-primary btn-sm float-right">Add permissions</a>
         </div>
         

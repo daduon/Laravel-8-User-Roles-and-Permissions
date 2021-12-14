@@ -4,7 +4,7 @@
     
     <div class="bg-light p-4 rounded">
         <h1>Roles</h1>
-        <div class="lead">
+        <div class="lead mb-5">
             <a href="{{ route('roles.create') }}" class="btn btn-primary btn-sm float-right">Add role</a>
         </div>
         
