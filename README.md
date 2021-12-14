@@ -1,7 +1,7 @@
 ## Laravel 8 User Roles and Permissions
 
 ## step 1: clone project from git
-
+   git clone https://github.com/daduon/Laravel-8-User-Roles-and-Permissions.git
 ## step 2: update composer
     run => composer update
 ## step 3: generate table
